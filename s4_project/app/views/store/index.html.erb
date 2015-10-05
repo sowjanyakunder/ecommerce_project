@@ -1,0 +1,21 @@
+<!-- <h1>Store#index</h1> -->
+<p>Find me in app/views/store/index.html.erb</p>
+<% if notice %>
+<%= notice %>
+<% end %>
+ <% @products.each do |product| %>
+
+  <h3><%= link_to product.name,product%></h3>
+<p><%=product.description %></p>
+<div class ="entry">
+<%= image_tag product.image_file,:width => ' 300 '  %>
+
+
+
+<div class ="price_line">
+<span class ="price"><%=number_to_currency(product.price)%></span>
+<%= button_to 'Add to cart',line_items_path(product_id: product)%>
+
+</div>
+</div>
+<% end %> 
