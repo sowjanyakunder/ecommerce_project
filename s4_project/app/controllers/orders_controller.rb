@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+skip_before_filter :authorize, only: [:new, :create]
   # GET /orders
   # GET /orders.json
   def index
@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     #@order = Order.new
   @cart = current_cart
   if @cart.line_items.empty?
-    redirect_to store_url,notice:"your cart is empty"
+    redirect_to store_url,notice: "your cart is empty"
   return 
  end
   

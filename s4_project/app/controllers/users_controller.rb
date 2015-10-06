@@ -37,7 +37,7 @@ skip_before_action :authorize,only:[:new, :create, :index]
   end
 
   # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
+  # PATCH/PUT /users/1.users
  
 
   # DELETE /users/1

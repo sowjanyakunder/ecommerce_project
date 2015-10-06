@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
 
 has_one :cart
-
+after_destroy :ensure_an_admin_remains
   
   attr_accessor :password
   before_save :encrypt_password
@@ -27,4 +27,14 @@ has_one :cart
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
+
+
+  private
+    def ensure_an_admin_remains
+      if User.count.zero?
+        raise "Can't delete last user"
+      end
+    end     
+  
 end

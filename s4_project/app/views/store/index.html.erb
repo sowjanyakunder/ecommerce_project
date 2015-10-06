@@ -1,8 +1,9 @@
 <!-- <h1>Store#index</h1> -->
-<p>Find me in app/views/store/index.html.erb</p>
+<!-- <p>Find me in app/views/store/index.html.erb</p> -->
 <% if notice %>
 <%= notice %>
 <% end %>
+
  <% @products.each do |product| %>
 
   <h3><%= link_to product.name,product%></h3>

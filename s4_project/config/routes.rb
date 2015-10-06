@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'admin' => 'admin#index'
   resources :orders
   get 'store', to: 'store#index', :as => 'store'
 
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   get "log_in" => "session#new", :as => "log_in"
   
   get "sign_up" => "users#new", :as => "sign_up"
-   post   'log_in'   => 'session#create'
+  post   'log_in'   => 'session#create'
  # root :to => "users#new"
  #root 'products#index'
  root 'store#index'
