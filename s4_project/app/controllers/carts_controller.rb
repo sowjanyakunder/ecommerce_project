@@ -23,8 +23,7 @@ else
 
 respond_to do |format|
 format.html
-
-# {render json:@cart}
+format.json {render json:@cart}
 end
 end
 end
