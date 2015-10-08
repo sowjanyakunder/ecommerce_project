@@ -3,18 +3,24 @@
 <h1>Listing Products</h1>
   <% if session[:user_id] %>
 
-    <%= link_to 'Orders', orders_path %>
-    <%= link_to 'Products', products_path %>
-    <%= link_to 'Users', users_path %>
+   <h4 class="opt"> <%= link_to 'Orders', orders_path %>
+   <%= link_to 'Products', products_path %>
+   <%= link_to 'Users', users_path %></h4>
+   <h4 class="new1"><%= link_to 'New Product', new_products_path %></h4>
 
  <% end %> 
-<p><%= link_to 'New Product', new_products_path %></p>
+
 <% @products.each do |product| %>
 
  <%=render product%>
  <%= link_to 'Show', product %>
+<%if current_user.try (:admin?)%>
+    
   <%= link_to 'Edit', edit_product_path(product) %>
 <p><%= link_to 'Destroy',product , method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<%else%>
+<%= link_to "back", root_path %>
+<%end%>
 <%=button_to'Add to Cart',line_items_path(product_id: product)
 %>
  

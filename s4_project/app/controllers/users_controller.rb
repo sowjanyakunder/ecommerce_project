@@ -33,6 +33,7 @@ skip_before_action :authorize,only:[:new, :create, :index]
         format.html { render :new }
  
       end
+     
     end
   end
 

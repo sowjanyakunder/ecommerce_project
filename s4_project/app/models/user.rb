@@ -28,8 +28,6 @@ after_destroy :ensure_an_admin_remains
     end
   end
 
-
-
   private
     def ensure_an_admin_remains
       if User.count.zero?

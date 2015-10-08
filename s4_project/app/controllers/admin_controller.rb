@@ -7,9 +7,22 @@ class AdminController < ApplicationController
 #   end
 
 
-
 def index
 @total_orders = Order.count
+
+if current_user.try (:admin?)
+redirect_to products_path
+else 
+	redirect_to log_in_path
 end
 
+end
+
+def create
+
+if current_user.admin != true
+current_user.admin = true #if admin is boolean
+current_user.save
+end
+end
 end

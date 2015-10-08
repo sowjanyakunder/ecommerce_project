@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'admin' => 'admin#index'
+  get 'admin' => "admin#index"
   resources :orders
   get 'store', to: 'store#index', :as => 'store'
 
